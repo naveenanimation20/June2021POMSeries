@@ -57,7 +57,7 @@ public class LoginPageTest extends BaseTest {
 	
 	public void getUserName() {
 		String cred = System.getProperty("cred");
-		System.out.println(cred);
+		System.out.println("================"+cred+"=========================");
 	}
 
 }

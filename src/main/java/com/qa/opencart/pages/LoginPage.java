@@ -47,6 +47,8 @@ public class LoginPage {
 	@Step("login to application with username {0} and password {1}")
 	public AccountsPage doLogin(String un, String pwd) {
 		System.out.println(un + ":"+ pwd);
+		String cred = System.getProperty("cred");
+		System.out.println("================"+cred+"=========================");
 		elementUtil.doSendKeys(emailId, un);
 		elementUtil.doSendKeys(password, pwd);
 		elementUtil.doClick(loginBtn);
