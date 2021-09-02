@@ -49,9 +49,15 @@ public class LoginPageTest extends BaseTest {
 	@Severity(SeverityLevel.BLOCKER)
 	@Test(priority = 4)
 	public void loginTest() {
+		getUserName();
 		AccountsPage accPage = loginPage.doLogin(prop.getProperty("username").trim(),
 				prop.getProperty("password").trim());
 		Assert.assertTrue(accPage.isLogoutLinkExist());
+	}
+	
+	public void getUserName() {
+		String cred = System.getProperty("cred");
+		System.out.println(cred);
 	}
 
 }

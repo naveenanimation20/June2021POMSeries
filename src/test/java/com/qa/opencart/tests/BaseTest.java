@@ -31,6 +31,7 @@ public class BaseTest {
 
 	@BeforeTest
 	public void setUp() {
+		
 		softAssert = new SoftAssert();
 		df = new DriverFactory();
 		prop = df.initProperties();
