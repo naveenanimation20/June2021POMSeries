@@ -18,8 +18,13 @@ public class OptionsManager {
 	
 	public ChromeOptions getChromeOptions() {
 		co = new ChromeOptions();
+//		co.setExperimentalOption("excludeSwitches", "enable-automation");
+//		co.setExperimentalOption("useAutomationExtension", false);
+//		co.addArguments("--disable-blink-features=AutomationControlled");
+
 		if(Boolean.parseBoolean(prop.getProperty("headless").trim())) co.addArguments("--headless");
 		if(Boolean.parseBoolean(prop.getProperty("incognito").trim())) co.addArguments("--incognito");
+		
 		return co;		
 	}
 	
