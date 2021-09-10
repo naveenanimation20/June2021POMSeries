@@ -5,6 +5,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import com.qa.opencart.factory.DriverFactory;
@@ -29,12 +30,22 @@ public class BaseTest {
 	ProductInfoPage productInfoPage;
 	RegistrationsPage regPage;
 
+	@Parameters({"browser", "browserversion"})
 	@BeforeTest
-	public void setUp() {
+	public void setUp(String browserName, String browserVersion) {
 		
 		softAssert = new SoftAssert();
 		df = new DriverFactory();
 		prop = df.initProperties();
+		
+			
+			if(browserName!=null) {
+				prop.setProperty("browser", browserName);
+				prop.setProperty("browserversion", browserVersion);
+
+			}
+		
+		
 		driver = df.initDriver(prop);
 		loginPage = new LoginPage(driver);
 	}
